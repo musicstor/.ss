@@ -1,0 +1,77 @@
+/* NOVA MUSIC design tokens: one place to change the whole look. */
+:root {
+  --font-display: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  --font-body: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+
+  --bg-0: #080c18;
+  --bg-1: #0b1020;
+  --bg-2: #121a30;
+  --surface: rgba(255,255,255,.045);
+  --surface-2: rgba(255,255,255,.08);
+  --border: rgba(255,255,255,.10);
+  --text: #eef2fb;
+  --text-dim: #a9b4cf;
+  --text-faint: #7c88a6;
+
+  --teal: #5eead4;
+  --cyan: #67d4f5;
+  --purple: #a78bfa;
+  --accent: var(--teal);
+  --accent-ink: #04201c;
+  --danger: #ff8a8a;
+  --focus: #ffffff;
+
+  --grad-brand: linear-gradient(135deg, var(--teal), var(--cyan) 50%, var(--purple));
+  --page-glow: radial-gradient(60rem 30rem at 15% -10%, rgba(103,212,245,.14), transparent 60%),
+               radial-gradient(50rem 28rem at 95% 0%, rgba(167,139,250,.12), transparent 60%);
+
+  --radius-s: .6rem;
+  --radius-m: 1rem;
+  --radius-l: 1.5rem;
+  --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem;
+  --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem;
+
+  --shadow-card: 0 6px 18px rgba(0,0,0,.28);
+  --blur: 14px;
+  --ease: cubic-bezier(.2,.7,.2,1);
+  --dur: 220ms;
+
+  --sidebar-w: 15.5rem;
+  --player-h: 5.25rem;
+  --bottom-nav-h: 3.75rem;
+}
+
+/* Light theme */
+:root[data-theme="light"] {
+  --bg-0: #eef2fa;
+  --bg-1: #f6f8fd;
+  --bg-2: #ffffff;
+  --surface: rgba(15,23,42,.045);
+  --surface-2: rgba(15,23,42,.08);
+  --border: rgba(15,23,42,.12);
+  --text: #0f172a;
+  --text-dim: #44506b;
+  --text-faint: #66728d;
+  --accent: #0f766e;
+  --accent-ink: #ffffff;
+  --danger: #b42318;
+  --focus: #0b1020;
+  --page-glow: radial-gradient(60rem 30rem at 15% -10%, rgba(103,212,245,.22), transparent 60%),
+               radial-gradient(50rem 28rem at 95% 0%, rgba(167,139,250,.16), transparent 60%);
+  --shadow-card: 0 6px 16px rgba(15,23,42,.10);
+}
+
+/* Quality modes: Low removes blur and shadows, High adds richer glow. */
+:root[data-quality="low"] { --blur: 0px; --shadow-card: none; --page-glow: none; }
+:root[data-quality="high"] { --blur: 22px; }
+
+/* Comfort mode: softer contrast and lower colour intensity. */
+:root[data-comfort="on"] {
+  --text: #dfe5f3;
+  --text-dim: #9aa6c0;
+  --page-glow: radial-gradient(60rem 30rem at 15% -10%, rgba(103,212,245,.07), transparent 60%);
+}
+:root[data-comfort="on"][data-theme="light"] { --text: #1f2937; }
+
+/* Motion: off when the user or the OS asks for reduced motion. */
+:root[data-motion="reduce"] { --dur: 0ms; }

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NOVA MUSIC</title>
+  <meta name="description" content="NOVA MUSIC: a calm, immersive place to discover and play music.">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Original icon set (stroke icons, drawn for NOVA MUSIC) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-5h-6v5H5a1 1 0 0 1-1-1z"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/></symbol>
+      <symbol id="i-library" viewBox="0 0 24 24"><path d="M5 4v16M10 4v16M15 6l4.5 13.5"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><path d="M5 7h9M18 7h1M5 17h1M10 17h9"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></symbol>
+      <symbol id="i-prev" viewBox="0 0 24 24"><path d="M7 5v14M18 6v12l-9-6z"/></symbol>
+      <symbol id="i-next" viewBox="0 0 24 24"><path d="M17 5v14M6 6v12l9-6z"/></symbol>
+      <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M4 7h3c5 0 5 10 10 10h3M4 17h3c1.5 0 2.5-.8 3.4-2M14 8.2C14.8 7.5 15.8 7 17 7h3M18 4l2 3-2 3M18 14l2 3-2 3"/></symbol>
+      <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M5 11V9a2 2 0 0 1 2-2h11M15 4l3 3-3 3M19 13v2a2 2 0 0 1-2 2H6M9 20l-3-3 3-3"/></symbol>
+      <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 10v4h3.5l4.5 4V6L7.5 10zM16 9.5a4 4 0 0 1 0 5M18.5 7a7.5 7.5 0 0 1 0 10"/></symbol>
+      <symbol id="i-note" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="16" r="2"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="Sidebar">
+      <a class="brand" href="#/home" aria-label="NOVA MUSIC home">
+        <img src="assets/logo.svg" alt="" width="34" height="34">
+        <span class="brand-name">NOVA<span> MUSIC</span></span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-list" id="sidebar-nav">
+          <li><a href="#/home" data-route="home"><svg class="icon"><use href="#i-home"/></svg><span>Home</span></a></li>
+          <li><a href="#/search" data-route="search"><svg class="icon"><use href="#i-search"/></svg><span>Search</span></a></li>
+          <li><a href="#/new" data-route="new"><svg class="icon"><use href="#i-spark"/></svg><span>New Releases</span></a></li>
+          <li><a href="#/library" data-route="library"><svg class="icon"><use href="#i-library"/></svg><span>Library</span></a></li>
+          <li><a href="#/settings" data-route="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Settings</span></a></li>
+        </ul>
+      </nav>
+      <p class="sidebar-note">Music is streamed only from sources that permit it.</p>
+    </aside>
+
+    <div class="main-col">
+      <header class="topbar">
+        <form class="search-box" id="topbar-search" role="search" aria-label="Search music">
+          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <label class="sr-only" for="topbar-q">Search songs, artists and playlists</label>
+          <input id="topbar-q" name="q" type="search" placeholder="Search songs, artists, playlists" autocomplete="off">
+        </form>
+        <a class="btn btn-ghost" href="#/login"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg><span>Log in</span></a>
+      </header>
+
+      <main id="main" tabindex="-1" aria-live="polite"></main>
+    </div>
+  </div>
+
+  <!-- Player bar: controls are disabled until Phase 2 gives them real audio -->
+  <section class="player-bar" aria-label="Player">
+    <div class="pb-track">
+      <div class="pb-art" aria-hidden="true"><svg class="icon"><use href="#i-note"/></svg></div>
+      <div>
+        <p class="pb-title">Nothing playing</p>
+        <p class="pb-sub">Playback arrives in Phase 2</p>
+      </div>
+    </div>
+    <div class="pb-controls" role="group" aria-label="Playback controls">
+      <button class="icon-btn" disabled aria-label="Previous track"><svg class="icon"><use href="#i-prev"/></svg></button>
+      <button class="icon-btn icon-btn-main" disabled aria-label="Play"><svg class="icon icon-fill"><use href="#i-play"/></svg></button>
+      <button class="icon-btn" disabled aria-label="Next track"><svg class="icon"><use href="#i-next"/></svg></button>
+    </div>
+    <div class="pb-extra"><svg class="icon" aria-hidden="true"><use href="#i-volume"/></svg></div>
+  </section>
+
+  <nav class="bottom-nav" aria-label="Primary (mobile)">
+    <a href="#/home" data-route="home"><svg class="icon"><use href="#i-home"/></svg><span>Home</span></a>
+    <a href="#/search" data-route="search"><svg class="icon"><use href="#i-search"/></svg><span>Search</span></a>
+    <a href="#/new" data-route="new"><svg class="icon"><use href="#i-spark"/></svg><span>New</span></a>
+    <a href="#/library" data-route="library"><svg class="icon"><use href="#i-library"/></svg><span>Library</span></a>
+    <a href="#/settings" data-route="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Settings</span></a>
+  </nav>
+
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <noscript><p style="padding:2rem;color:#fff">NOVA MUSIC needs JavaScript enabled.</p></noscript>
+</body>
+</html>
